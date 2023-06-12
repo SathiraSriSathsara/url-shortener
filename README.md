@@ -12,7 +12,7 @@ This is a simple URL shortener web application that utilizes the Bitly API to sh
 
 To run this application locally, follow these steps:
 
-1. Clone the repository: `git clone https://github.com/your-username/url-shortener.git`
+1. Clone the repository: `git clone https://github.com/SathiraSriSathsara/url-shortener.git`
 2. Navigate to the project directory: `cd url-shortener`
 3. Open the `index.html` file in your preferred web browser.
 4. Enter a long URL in the input field and click the "Shorten URL" button.
@@ -42,5 +42,5 @@ Contributions are welcome! If you find any issues or have suggestions for improv
 
 ## Credits
 
-This URL shortener was coded by Sathira Sri Sathsara. You can find the original code at [GitHub](https://github.com/your-username/url-shortener).
+This URL shortener was coded by Sathira Sri Sathsara. You can find the original code at [GitHub](https://github.com/SathiraSriSathsara/url-shortener).
 
