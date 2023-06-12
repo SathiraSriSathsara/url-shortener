@@ -2,6 +2,14 @@
 
 This is a simple URL shortener web application that utilizes the Bitly API to shorten long URLs into shorter, more manageable ones.
 
+## Preview
+
+![Screenshot](https://github.com/SathiraSriSathsara/url-shortener/blob/main/preview.png)
+
+## Script 
+
+![Code](https://github.com/SathiraSriSathsara/url-shortener/blob/main/script.png)
+
 ## Features
 
 - Allows users to enter a long URL and shorten it.
@@ -43,4 +51,12 @@ Contributions are welcome! If you find any issues or have suggestions for improv
 ## Credits
 
 This URL shortener was coded by Sathira Sri Sathsara. You can find the original code at [GitHub](https://github.com/SathiraSriSathsara/url-shortener).
+
+
+<br>
+
+<div align="center">
+	<img src="https://github.com/SathiraSriSathsara/SathiraSriSathsara/blob/main/icon.png" width="40">
+	<h4>Sathira Sri Sathsara @ 2023</h4>
+</div>	
 
