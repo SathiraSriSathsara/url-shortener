@@ -1,0 +1,121 @@
+<!-- URL Shortener HTML and CSS Page -->
+<!-- Coded by Sathira Sri Sathsara -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>URL Shortener</title>
+    <style>
+        /* CSS Styles */
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f2f2f2;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 50px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .form-group input[type="text"] {
+            width: 98%;
+            padding: 8px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .form-group .btn-submit {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .form-group .btn-submit:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>URL Shortener</h2>
+        <form id="urlForm" action="#">
+            <div class="form-group">
+                <label for="longUrl">Long URL:</label>
+                <input type="text" id="longUrl" name="longUrl" placeholder="Enter the URL to shorten" required>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn-submit">Shorten URL</button>
+            </div>
+        </form>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        // JavaScript Logic
+
+        document.getElementById("urlForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            var longUrl = document.getElementById("longUrl").value;
+            shortenUrl(longUrl);
+        });
+
+        function shortenUrl(longUrl) {
+            var xhr = new XMLHttpRequest();
+            var apiKey = 'YOUR_BITLY_API_KEY';
+            var login = 'YOUR_BITLY_LOGIN';
+            var bitlyUrl = 'https://api-ssl.bitly.com/v4/shorten';
+            var headers = {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + apiKey
+            };
+            var data = JSON.stringify({
+                'long_url': longUrl
+            });
+
+            xhr.open("POST", bitlyUrl, true);
+            Object.keys(headers).forEach(function(headerKey) {
+                xhr.setRequestHeader(headerKey, headers[headerKey]);
+            });
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4) {
+                    if (xhr.status === 200) {
+                        var response = JSON.parse(xhr.responseText);
+                        var shortUrl = response.id;
+                        displayResult(shortUrl);
+                    } else {
+                        displayResult("Failed to shorten the URL.");
+                    }
+                }
+            };
+            xhr.send(data);
+        }
+
+        function displayResult(result) {
+            var resultContainer = document.getElementById("result");
+            resultContainer.textContent = result;
+        }
+    </script>
+</body>
+</html>
